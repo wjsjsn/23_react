@@ -5,6 +5,7 @@ function App() {
   // function 안 변수는 return 위에
   const name = "쌩감자";
   let age = 24;
+  
   // 객체
   const naver = {
     name : "네이버",
