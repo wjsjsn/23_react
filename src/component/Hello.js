@@ -9,20 +9,30 @@
 
 import { useState } from "react";
 
-const Hello = function () {
+// 속성을 받아줌
+// props : object(객체)
+export default function Hello (props) {
+    console.log("props : ", props);
     // jsx는 하나의 태그만 만들 수 있음
+    // props는 강제로 변경 x
     const[name, setName] = useState('hong');
+
+    // useState를 이용
+    const[age, setAge] = useState(props.age);
+
+    const msg = props.age > 19 ? "성인" : "미성년자";
+
     function changeName() {
         const newName = name === 'hong' ? 'kim' : 'hong';
         setName(newName);
+        setAge(age + 5);
     }
     return(
         <div>
             <h1>State</h1>
-            <h1>{name}</h1>
+            <h1>{name}({age}) : {msg}</h1>
             <button onClick={changeName}>changeName</button>            
         </div>
     )
 }
-
-export default Hello;
+;
